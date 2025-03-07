@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # 主应用服务
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./certs:/app/certs:ro
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    depends_on:
+      - redis
+      - cert-manager
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Redis缓存服务
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 证书管理服务
+  cert-manager:
+    build:
+      context: ./cert-manager
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./certs:/certs
+      - ./cert-manager/scripts:/scripts
+      - ./cert-manager/config:/config
+    environment:
+      - CERT_REFRESH_INTERVAL=86400 # 每24小时更新一次
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "sh", "-c", "ps aux | grep cert-refresh | grep -v grep"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+  # Nginx服务 - 用于静态资源和反向代理
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./dist:/usr/share/nginx/html:ro
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - app
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
