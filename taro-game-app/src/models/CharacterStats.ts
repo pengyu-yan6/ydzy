@@ -60,6 +60,9 @@ export interface Skill {
   effectValue: number;     // 效果数值
   range: number;           // 技能范围
   energyCost: number;      // 能量消耗
+  baseValue: number;       // 基础效果值
+  scalingFactor: number;   // 属性加成系数
+  duration: number;        // 效果持续时间
 }
 
 // 羁绊效果接口
@@ -147,7 +150,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.DAMAGE,
         effectValue: 120,
         range: 2,
-        energyCost: 60
+        energyCost: 60,
+        baseValue: 120,
+        scalingFactor: 0.5,
+        duration: 0
       },
       {
         id: 'iron_will',
@@ -159,7 +165,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.BUFF,
         effectValue: 200,
         range: 0,
-        energyCost: 0
+        energyCost: 0,
+        baseValue: 200,
+        scalingFactor: 0.3,
+        duration: 3
       }
     ],
     cost: 3,
@@ -198,7 +207,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.DAMAGE,
         effectValue: 150,
         range: 3,
-        energyCost: 70
+        energyCost: 70,
+        baseValue: 150,
+        scalingFactor: 0.7,
+        duration: 0
       },
       {
         id: 'overcharge',
@@ -210,7 +222,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.BUFF,
         effectValue: 50,
         range: 0,
-        energyCost: 100
+        energyCost: 100,
+        baseValue: 50,
+        scalingFactor: 0.8,
+        duration: 5
       }
     ],
     cost: 4,
@@ -249,7 +264,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.DAMAGE,
         effectValue: 200,
         range: 3,
-        energyCost: 60
+        energyCost: 60,
+        baseValue: 200,
+        scalingFactor: 0.6,
+        duration: 0
       },
       {
         id: 'vanish',
@@ -261,7 +279,10 @@ export const CHARACTERS: Character[] = [
         effectType: EffectType.BUFF,
         effectValue: 0,
         range: 0,
-        energyCost: 40
+        energyCost: 40,
+        baseValue: 0,
+        scalingFactor: 0.2,
+        duration: 4
       }
     ],
     cost: 3,

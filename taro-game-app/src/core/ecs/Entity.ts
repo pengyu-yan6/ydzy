@@ -95,4 +95,13 @@ export class Entity {
   getComponentTypes(): string[] {
     return Array.from(this.components.keys());
   }
+
+  /**
+   * 获取实体名称
+   * 如果实体有Name组件，则返回其名称，否则返回实体ID
+   */
+  getName(): string {
+    const nameComponent = this.getComponent<{name: string}>('Name');
+    return nameComponent ? nameComponent.name : `实体 ${this.id}`;
+  }
 }
