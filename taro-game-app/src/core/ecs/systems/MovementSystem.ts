@@ -40,31 +40,15 @@ export class GridMovementSystem extends AbstractSystem {
     
     // 如果实体正在移动
     if (movement.isMoving) {
-      // 更新移动进度
-      const elapsedTime = (Date.now() - movement.moveStartTime) / 1000; // 转换为秒
-      movement.moveProgress = Math.min(elapsedTime * movement.moveSpeed, 1);
+      // 使用deltaTime更新移动进度
+      movement.moveProgress += movement.moveSpeed * deltaTime;
+      movement.moveProgress = Math.min(movement.moveProgress, 1);
       
       // 如果移动完成
       if (movement.moveProgress >= 1) {
         // 完成当前移动
         this.completeCurrentMove(gridPosition, movement);
-        
-        // 如果还有路径点，继续移动到下一个点
-        if (movement.movePath.length > 0) {
-          this.startNextMove(gridPosition, movement);
-        }
       }
-    }
-    // 如果有目标位置但还没开始移动
-    else if (gridPosition.targetGridX !== null && gridPosition.targetGridY !== null) {
-      // 开始移动
-      movement.isMoving = true;
-      movement.moveStartTime = Date.now();
-      movement.moveProgress = 0;
-    }
-    // 如果有路径但还没开始移动
-    else if (movement.movePath.length > 0) {
-      this.startNextMove(gridPosition, movement);
     }
   }
   

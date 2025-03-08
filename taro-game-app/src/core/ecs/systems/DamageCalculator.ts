@@ -141,8 +141,8 @@ export class DamageCalculator {
    * @param stats 防御者属性
    */
   private static checkEvasion(stats: CharacterStatsComponent): boolean {
-    // 假设闪避率为5%（可以根据角色属性调整）
-    const evasionChance = 0.05;
+    // 根据角色敏捷属性计算闪避率
+    const evasionChance = stats.agility * 0.001; // 每点敏捷提供0.1%闪避率
     return Math.random() < evasionChance;
   }
   

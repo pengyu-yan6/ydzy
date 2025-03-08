@@ -1,0 +1,123 @@
+.index {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+  font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  background-color: #e0e0e0;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3a3f7a;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 主按钮区域样式 */
+.main-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.primary {
+  background-color: #3a3f7a;
+}
+
+.primary text {
+  color: white;
+}
+
+.secondary {
+  background-color: #ffcc00;
+}
+
+.secondary text {
+  color: #333;
+}
+
+/* 新闻公告区域样式 */
+.news-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3a3f7a;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.news-title {
+  font-size: 14px;
+  color: #333;
+}
+
+.news-date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 底部样式 */
+.footer {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer text {
+  font-size: 12px;
+  color: #999;
+}

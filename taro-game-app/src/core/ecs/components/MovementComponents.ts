@@ -60,6 +60,7 @@ export class CharacterStatsComponent implements Component {
   public mana: number;
   public maxMana: number;
   public manaRegen: number;
+  public agility: number; // 敏捷度，用于计算闪避率
   public items: string[];
   public buffs: Array<{id: string, duration: number, effect: any}>;
   
@@ -84,6 +85,7 @@ export class CharacterStatsComponent implements Component {
     mana: number = 0, // 当前法力值
     maxMana: number = 100, // 最大法力值
     manaRegen: number = 10, // 法力回复
+    agility: number = 0, // 敏捷度
     items: string[] = [], // 装备物品ID列表
     buffs: Array<{id: string, duration: number, effect: any}> = [] // 增益/减益效果
   ) {
@@ -107,6 +109,7 @@ export class CharacterStatsComponent implements Component {
     this.mana = mana;
     this.maxMana = maxMana;
     this.manaRegen = manaRegen;
+    this.agility = agility;
     this.items = items;
     this.buffs = buffs;
   }
