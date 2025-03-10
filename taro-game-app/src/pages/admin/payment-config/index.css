@@ -1,0 +1,178 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 顶部导航栏样式 */
+.top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #3a3f7a;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.back-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 内容区域样式 */
+.content-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 配置组样式 */
+.config-group {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.group-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 表单样式 */
+.config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.textarea {
+  height: 80px;
+  line-height: 1.4;
+}
+
+.picker {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+}
+
+/* 按钮样式 */
+.action-button {
+  background-color: #3a3f7a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.action-button.secondary {
+  background-color: #999;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* CDK列表样式 */
+.cdk-list {
+  margin-top: 15px;
+}
+
+.list-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1.5fr;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.header-cell {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1.5fr;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cell {
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

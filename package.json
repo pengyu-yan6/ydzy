@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@tarojs/cli": "^4.0.9",
+    "@tarojs/components": "^4.0.9",
+    "@tarojs/taro": "^4.0.9",
+    "react": "^19.0.0",
+    "taro-ui": "^3.3.0"
+  },
+  "devDependencies": {
+    "@tarojs/plugin-platform-tt": "^4.0.9"
+  },
+  "resolutions": {
+    "vite": "4.2.0"
+  }
+}
